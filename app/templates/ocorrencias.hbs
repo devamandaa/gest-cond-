@@ -1,0 +1,56 @@
+<div class="ocorrencias-container">
+  <h2>Registrar Ocorrência</h2>
+
+  {{!-- Formulário --}}
+  <form class="form-ocorrencia">
+    <label>Tipo de Ocorrência:</label>
+    <select required>
+      <option>Barulho Excessivo</option>
+      <option>Problema Elétrico</option>
+      <option>Vazamento</option>
+      <option>Segurança</option>
+      <option>Outros</option>
+    </select>
+
+    <label>Descrição:</label>
+    <textarea placeholder="Descreva o problema" required></textarea>
+
+    <label>Data:</label>
+    <input type="date" required />
+
+    <label>Foto (opcional):</label>
+    <input type="file" accept="image/*" />
+
+    <button type="submit">Enviar Ocorrência</button>
+  </form>
+
+  {{!-- Ocorrências Enviadas --}}
+  <h3>Minhas Ocorrências</h3>
+  <table class="tabela-ocorrencias">
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Data</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Barulho Excessivo</td>
+        <td>10/03/2025</td>
+        <td class="status-aberta">Aberta</td>
+        <td><button type="button">Cancelar</button></td>
+      </tr>
+      <tr>
+        <td>Vazamento</td>
+        <td>05/03/2025</td>
+        <td class="status-resolvida">Resolvida</td>
+        <td><button disabled type="button">Cancelar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  {{!-- Voltar --}}
+  <LinkTo @route="index" class="button">Voltar ao Menu</LinkTo>
+</div>

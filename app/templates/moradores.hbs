@@ -1,0 +1,38 @@
+<div class="moradores-container">
+  <h2>Moradores do Condomínio</h2>
+
+  {{!-- Lista de Moradores --}}
+  <table class="tabela-moradores">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Unidade</th>
+        <th>Contato</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>João Silva</td>
+        <td>Bloco A - 302</td>
+        <td>(11) 91234-5678</td>
+        <td class="ativo">Ativo</td>
+        <td><button type="button">Ver</button> <button type="button">Editar</button></td>
+      </tr>
+      <tr>
+        <td>Maria Souza</td>
+        <td>Bloco B - 105</td>
+        <td>(11) 99876-5432</td>
+        <td class="inativo">Inativo</td>
+        <td><button type="button">Ver</button> <button type="button">Editar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  {{!-- Botão para adicionar morador --}}
+  <button class="btn-add" type="button">➕ Adicionar Novo Morador</button>
+
+  {{!-- Voltar ao Menu --}}
+  <LinkTo @route="index" class="button">Voltar ao Menu</LinkTo>
+</div>

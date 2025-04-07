@@ -1,0 +1,157 @@
+<div class="container">
+  <h2>CodeWise <br /> Gestão de Condomínios</h2>
+
+  <h4>CodeWise é uma plataforma completa para gestão moderna de condomíbnios. Desenvolvido para atender síndicos,
+    admnistradores e condôminios, o aplicativo centraliza todas as funções essecnais da administração condominial em um
+    único ambiente digital.
+    Gerencie boletos, agende áreas comuns, regriste ocorrências, evie comunicados e acompanhe tudo em tempo real, com o
+    CodeWise, a rotina do condomínio se torna mais eficiente, transparente e segura.
+  </h4>
+
+
+
+  <nav class="navbar">
+    <ul>
+
+      <li>
+        <LinkTo @route="boletos">Boletos</LinkTo>
+      </li>
+      <li>
+        <LinkTo @route="reservas">Reservas</LinkTo>
+      </li>
+      <li>
+        <LinkTo @route="ocorrencias">Ocorrências</LinkTo>
+      </li>
+      <li>
+        <LinkTo @route="comunicados">Comunicados</LinkTo>
+      </li>
+      <li>
+        <LinkTo @route="financeiro">Financeiro</LinkTo>
+      </li>
+      <li>
+        <LinkTo @route="moradores">Moradores</LinkTo>
+      </li>
+      <li>
+        <LinkTo @route="agenda-do-sindico">Agenda do Síndico</LinkTo>
+      </li>
+      <li>
+        <LinkTo @route="ordem-servico">Ordem de Serviço</LinkTo>
+      </li>
+
+      <li>
+        <LinkTo @route="portaria">Portaria</LinkTo>
+      </li>
+
+      <li>
+        <LinkTo @route="encomendas">Encomendas</LinkTo>
+      </li>
+
+      <li>
+        <LinkTo @route="relatorios">Relatórios</LinkTo>
+      </li>
+
+      <li>
+        <LinkTo @route="whatsapp">Enviar Mensagem</LinkTo>
+      </li>
+
+     <li>
+       <LinkTo @route="funcionarios">Funcionários</LinkTo>
+     </li>
+    </ul>
+  </nav>
+
+
+
+</div>
+
+
+<section>
+
+  {{!-- Resumo Rápido --}}
+  <div>
+    <div>
+      <h3>Moradores</h3>
+      <p>48</p>
+    </div>
+    <div>
+      <h3>Boletos Pendentes</h3>
+      <p>5</p>
+    </div>
+    <div>
+      <h3>Reservas da Semana</h3>
+      <p>3</p>
+    </div>
+    <div>
+      <h3>Ocorrências Abertas</h3>
+      <p>2</p>
+    </div>
+  </div>
+
+  {{!-- Avisos Importantes --}}
+  <div>
+    <h2> Avisos Importantes</h2>
+    <ul>
+      <li>Manutenção da piscina dia 28/03.</li>
+      <li>Reunião extraordinária 29/03 às 19h.</li>
+      <li>Prazo para pagamento da taxa condominial: 10/04.</li>
+    </ul>
+  </div>
+
+  {{!-- Próximos Eventos --}}
+  <div>
+    <h2> Próximos Eventos</h2>
+    <ul>
+      <li>29/03 - Reunião de condomínio</li>
+      <li>02/04 - Limpeza de caixa d'água</li>
+    </ul>
+  </div>
+
+  {{!-- Atalhos Rápidos --}}
+
+
+  {{!-- Calendário --}}
+  <div>
+    <h2> Calendário</h2>
+    <p>Aqui você pode integrar um calendário interativo no futuro.</p>
+  </div>
+
+  {{!-- Prestação de Contas --}}
+  <div>
+    <h2> Prestação de Contas</h2>
+    <ul>
+      <li>R$ 1.200,00 - Limpeza e conservação</li>
+      <li>R$ 600,00 - Jardinagem</li>
+      <li>R$ 2.000,00 - Manutenção de elevadores</li>
+    </ul>
+  </div>
+
+
+
+  {{!-- Equipe --}}
+  <div>
+    <h2> Equipe do Condomínio</h2>
+    <ul>
+      <li>Síndico: João Silva</li>
+      <li>Subsíndico: Ana Oliveira</li>
+      <li>Porteiro: Carlos Mendes</li>
+    </ul>
+  </div>
+
+  {{!-- Sugestões --}}
+  <div>
+    <h2> Sugestões e Reclamações</h2>
+    <form>
+      <input type="text" placeholder="Assunto" />
+      <textarea placeholder="Escreva aqui..."></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  {{!-- Botão de Emergência --}}
+  <div>
+    <h2> Botão de Emergência</h2>
+    <p>Use este botão em casos urgentes. A portaria será notificada imediatamente.</p>
+    <button type="button">Notificar Portaria</button>
+  </div>
+
+</section>

@@ -1,0 +1,12 @@
+<form {{on "submit" this.autorizarVisitante}} class="grid gap-4">
+
+  <Input @value={{this.nome}} placeholder="Nome do visitante" class="input" />
+  <Input @value={{this.documento}} placeholder="Documento" class="input" />
+  <Input @value={{this.dataAgendada}} type="datetime-local" class="input" />
+
+  <button type="submit" class="btn-primary">Gerar autorização</button>
+
+  {{#if this.linkGerado}}
+    <p class="mt-4 text-green-600">Link gerado: <a href={{this.linkGerado}} target="_blank" class="underline">{{this.linkGerado}}</a></p>
+  {{/if}}
+</form>

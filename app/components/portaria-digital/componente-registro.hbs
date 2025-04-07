@@ -1,0 +1,12 @@
+<div class="quadrado" {{on "click" this.toggleForm}}>
+  {{#if this.aberto}}
+    <form {{on "submit" this.enviarFormulario}} {{on "click" (stopPropagation)}}>
+      <input type="text" placeholder="Nome" value={{this.nome}} {{on "input" (fn this.atualizarCampo "nome")}} />
+      <input type="text" placeholder="Telefone" value={{this.telefone}} {{on "input" (fn this.atualizarCampo "telefone")}} />
+      <input type="text" placeholder="Documento" value={{this.documento}} {{on "input" (fn this.atualizarCampo "documento")}} />
+      <button type="submit">Salvar</button>
+    </form>
+  {{else}}
+    <h3>{{@titulo}}</h3>
+  {{/if}}
+</div>

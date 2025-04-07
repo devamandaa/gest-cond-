@@ -1,0 +1,60 @@
+<div class="reservas-container">
+  <h2>Reservar Áreas de Diversão</h2>
+
+  {{!-- Formulário de Reserva --}}
+  <form class="form-reserva">
+    <label>Nome:</label>
+    <input type="text" placeholder="Seu nome completo" required />
+
+    <label>Unidade:</label>
+    <input type="text" placeholder="Ex: Bloco A - 302" required />
+
+    <label>Área:</label>
+    <select required>
+      <option>Salão de Festas</option>
+      <option>Churrasqueira</option>
+      <option>Piscina</option>
+      <option>Quadra Esportiva</option>
+    </select>
+
+    <label>Data:</label>
+    <input type="date" required />
+
+    <label>Horário:</label>
+    <input type="time" required />
+
+    <button type="submit">Confirmar Reserva</button>
+  </form>
+
+  {{!-- Minhas Reservas --}}
+  <h3>Minhas Reservas</h3>
+  <table class="tabela-reservas">
+    <thead>
+      <tr>
+        <th>Área</th>
+        <th>Data</th>
+        <th>Hora</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Piscina</td>
+        <td>15/04/2025</td>
+        <td>14:00</td>
+        <td class="confirmada">Confirmada</td>
+        <td><button type="button">Cancelar</button></td>
+      </tr>
+      <tr>
+        <td>Salão de Festas</td>
+        <td>20/04/2025</td>
+        <td>19:00</td>
+        <td class="pendente">Pendente</td>
+        <td><button type="button">Cancelar</button></td>
+      </tr>
+    </tbody>
+  </table>
+   <LinkTo @route="index" class="button">Voltar ao Menu</LinkTo>
+</div>
+

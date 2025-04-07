@@ -1,0 +1,24 @@
+<div class="whatsapp-container">
+  <h2>Enviar Mensagem via WhatsApp</h2>
+
+  <label>Destinatário</label>
+  <select {{on "change" this.handleSelect}}>
+    <option value="">Selecione um morador</option>
+    <option value="11999999999">João da Silva - Apto 101</option>
+    <option value="11888888888">Maria Oliveira - Apto 202</option>
+  </select>
+
+  <label>Mensagem</label>
+  <textarea rows="4" placeholder="Digite sua mensagem aqui..." {{on "input" this.handleInput}}></textarea>
+
+  <div class="modelos">
+    <p>Modelos rápidos:</p>
+    <button {{on "click" (fn this.fillMessage "📦 Encomenda recebida")}}>📦 Encomenda recebida</button>
+    <button {{on "click" (fn this.fillMessage "⚠️ Manutenção no prédio")}}>⚠️ Manutenção no prédio</button>
+    <button {{on "click" (fn this.fillMessage "📅 Lembrete de reserva")}}>📅 Lembrete de reserva</button>
+  </div>
+
+  <button class="enviar-btn" {{on "click" this.sendMessage}}>Enviar via WhatsApp</button>
+
+   <LinkTo @route="index" class="button">Voltar ao Menu</LinkTo>
+</div>

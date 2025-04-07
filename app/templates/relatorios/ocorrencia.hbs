@@ -1,0 +1,45 @@
+<h1 class="titulo-relatorio">Relatório de Ocorrências</h1>
+
+<div class="filtros-relatorio">
+  <div class="campo-filtro">
+    <label>Data Inicial:</label>
+    <Input @type="date" @value={{this.dataInicio}} />
+  </div>
+
+  <div class="campo-filtro">
+    <label>Data Final:</label>
+    <Input @type="date" @value={{this.dataFim}} />
+  </div>
+  {{this}}
+  <div class="campo-filtro">
+    <label>Status:</label>
+    <select {{on "change" this.setStatus}}>
+      <option value="">Todos</option>
+      <option value="pendente">Pendente</option>
+      <option value="resolvido">Resolvido</option>
+    </select>
+  </div>
+  <button {{on "click" this.gerarRelatorio}} class="botao-gerar">
+    📄 Gerar Relatório
+  </button>
+</div>
+
+{{#if this.resultados}}
+  <h2 class="subtitulo">Resultados:</h2>
+  <ul class="lista-resultados">
+    {{#each this.resultados as |item|}}
+      <li class="item-resultado">
+        <strong>{{item.titulo}}</strong><br />
+        Status: {{item.status}}<br />
+        Criado em: {{item.created_at}}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}
+
+{{#if this.pdfLink}}
+  <div class="acoes-finais">
+    <a href={{this.pdfLink}} target="_blank" class="link-pdf">📥 Baixar PDF</a>
+    <LinkTo @route="index" class="link-voltar">🔙 Voltar ao Menu</LinkTo>
+  </div>
+{{/if}}

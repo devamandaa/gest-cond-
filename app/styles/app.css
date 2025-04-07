@@ -1,1 +1,1445 @@
-/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* PARTE PRINCIPAIL DO DESING DO APP */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* ajuda com layouts usando padding/border */
+}
+
+body {
+  color: #333;
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    #dbe9f4,
+    #a3cbe3,
+    #6baed6
+  ); /* essa cor de fundo pode ser anexada nas outras páginas */
+  font-family: Lato, "Open Sans", Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+/* TERMINA A PARTE PRINCIPAL DO DESING */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 0;
+}
+
+.container h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  color: #000;
+}
+
+.container h4 {
+  color: #000;
+  font-size: 1rem;
+  max-width: 500px;
+  margin-top: 0;
+  text-align: left;
+}
+
+/* FINAL DO DESIGN DO TÍTULO */
+
+/* INÍCIO DO DESIGN DOS BOTÕES DE OPÇÕES */
+.navbar {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  padding: 0;
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  margin-top: -300px;
+  gap: 10px; /* espaço entre os botões */
+}
+
+.navbar li a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 16px;
+  background-color: #1e90ff;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar li a:hover {
+  background-color: #808085;
+}
+
+.menu {
+  display: flex;
+
+  /* corrigido de 'contents' para 'flex' */
+  gap: 10px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.menu li {
+  background-color: #edf2fa;
+  padding: 12px 16px;
+  border: 1px solid #f5fffa;
+
+  /* faltava ; aqui */
+  border-radius: 4px;
+}
+
+.menu li a {
+  color: #edf2fa;
+  text-decoration: none;
+  font-weight: bold;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+.menu li a:hover {
+  background-color: #7b5bf2;
+  border-radius: 4px;
+  padding: 12px 16px;
+}
+
+/* FINAL DO DESIGN DAS OPÇÕES DE BOTÕES */
+
+/* PAINEL GERAL - index.hbs */
+
+/* (ESSE SECTION É O PRINCIPAL) */
+
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+
+section > div {
+  background-color: #007bff; /* azul */
+  color: black;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 10%);
+  font-family: Arial, sans-serif;
+}
+
+h2,
+h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input,
+textarea {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #0056b3;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* AQUI SÃO OS COMANDOS DE INDEX.HBS PARTE DO TITILO */
+
+/* FINAL DA PÁGINA DE DESING, DO PAINEL GERAL, QUE FICA NO INDEX.HBS */
+
+.boletos-container {
+  padding: 20px;
+  color: #000;
+
+  /* Texto escuro */
+  text-align: center;
+  min-height: 100vh;
+
+  /* Garante que o conteúdo interno também estenda a altura */
+  box-sizing: border-box;
+
+  /* Inclui padding na altura total */
+}
+
+/* Título */
+.boletos-container h2 {
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/* Filtros */
+.filtros {
+  margin-bottom: 20px;
+}
+
+.filtros select {
+  margin: 0 10px;
+  padding: 5px;
+  color: #000;
+}
+
+/* Tabela de boletos */
+.tabela-boletos {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 20px;
+  border-collapse: collapse;
+  background-color: #87ceeb;
+
+  /* Azul escuro */
+  color: #000;
+}
+
+.tabela-boletos th,
+.tabela-boletos td {
+  border: 1px solid #ffffff50;
+  padding: 10px;
+}
+
+.status-vencido {
+  color: red;
+  font-weight: bold;
+}
+
+.status-pendente {
+  color: orange;
+  font-weight: bold;
+}
+
+/* Botões da tabela */
+.tabela-boletos button {
+  margin: 2px;
+  padding: 6px 10px;
+  background-color: #7b5bf2;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tabela-boletos button:hover {
+  background-color: #808085;
+  color: #edf2fa;
+}
+
+/* Informações complementares */
+.info-complementar {
+  margin-top: 20px;
+  background-color: #87ceeb;
+
+  /* Azul ainda mais escuro */
+  color: #000;
+  padding: 15px;
+  border-radius: 6px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* Botões globais */
+.acoes-globais button {
+  margin: 10px;
+  padding: 10px 15px;
+  background-color: #09184d;
+  color: #edf2fa;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.acoes-globais button:hover {
+  background-color: #374151;
+
+  /* Cinza escuro */
+}
+
+.botao-menu button {
+  margin: 10px;
+  padding: 10px 15px;
+  background-color: #87ceeb;
+  color: #edf2fa;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #87ceeb;
+
+  /* Azul escuro */
+  color: #edf2fa;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+
+  /* Remove sublinhado do link */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #374151;
+}
+
+/* ─────────────────────────────────────────────── */
+
+/* 🌟 NOVOS COMPONENTES - BLOCOS EXTRAS DO FINANCEIRO */
+
+/* ─────────────────────────────────────────────── */
+
+/* Estilo base dos novos blocos (calendário, comprovante, renegociação, etc.) */
+.calendario-vencimentos,
+.upload-comprovante,
+.renegociacao,
+.historico-anual,
+.simulador-multa,
+.grafico-pagamentos {
+  background-color: #87ceeb;
+  color: #000;
+  padding: 15px;
+  border-radius: 6px;
+  max-width: 900px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+/* Títulos dos blocos extras */
+.calendario-vencimentos h3,
+.upload-comprovante h3,
+.renegociacao h3,
+.historico-anual h3,
+.simulador-multa h3,
+.grafico-pagamentos h3 {
+  margin-bottom: 10px;
+  color: #000;
+}
+
+/* Inputs e selects */
+.upload-comprovante input[type="file"],
+.historico-anual select {
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+}
+
+/* Botões internos dos novos blocos */
+.upload-comprovante button,
+.renegociacao button,
+.simulador-multa button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #7b5bf2;
+  color: #edf2fa;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.upload-comprovante button:hover,
+.renegociacao button:hover,
+.simulador-multa button:hover {
+  background-color: #7b5bf2;
+  color: #000;
+}
+
+/* FINAL DO DESING DA PÁGINA DE BOLETOS */
+
+/* COMEÇO DO DESING DA PAGINA DE RESERVAS */
+
+.reservas-container {
+  padding: 20px;
+  text-align: center;
+  color: #1e293b;
+}
+
+h2,
+h3 {
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.form-reserva {
+  background-color: #87ceeb;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto 30px;
+  color: #000;
+}
+
+.form-reserva label {
+  display: block;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.form-reserva input,
+.form-reserva select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 4px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.form-reserva button {
+  background-color: #7b5bf2;
+  color: #edf2fa;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.form-reserva button:hover {
+  background-color: #808085;
+}
+
+.tabela-reservas {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #87ceeb;
+  color: #000;
+}
+
+.tabela-reservas th,
+.tabela-reservas td {
+  border: 1px solid #ffffff50;
+  padding: 10px;
+}
+
+.confirmada {
+  color: #10b981;
+
+  /* Verde */
+  font-weight: bold;
+}
+
+.pendente {
+  color: orange;
+  font-weight: bold;
+}
+
+.tabela-reservas button {
+  background-color: #7b5bf2;
+  color: #edf2fa;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tabela-reservas button:hover {
+  background-color: #09184d;
+}
+
+/* FINAL DO DESEING DA PÁGINA DE RESERVAS */
+
+/* INICIO DO DESING DA PÁGINA OCORRENCIAS */
+.ocorrencias-container {
+  padding: 20px;
+  text-align: center;
+  min-height: 100vh;
+  color: #09184d;
+}
+
+.form-ocorrencia {
+  background-color: #87ceeb;
+  color: #000;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
+.form-ocorrencia label {
+  display: block;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.form-ocorrencia input,
+.form-ocorrencia select,
+.form-ocorrencia textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 4px;
+  border: 1px solid #09184d;
+  margin-bottom: 10px;
+}
+
+.form-ocorrencia button {
+  background-color: #7b5bf2;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.form-ocorrencia button:hover {
+  background-color: #7b5bf2;
+}
+
+/* NOVO - Tabela de ocorrências */
+.tabela-ocorrencias {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #87ceeb;
+  color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabela-ocorrencias th,
+.tabela-ocorrencias td {
+  border: 1px solid #ffffff50;
+  padding: 10px;
+  text-align: center;
+}
+
+.tabela-ocorrencias th {
+  background-color: #87ceeb;
+}
+
+.tabela-ocorrencias td {
+  background-color: #87ceeb;
+}
+
+.status-aberta {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-resolvida {
+  color: #10b981;
+
+  /* Verde */
+  font-weight: bold;
+}
+
+.tabela-ocorrencias button {
+  background-color: #7b5bf2;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tabela-ocorrencias button:hover {
+  background-color: #7b5bf2;
+}
+
+/* FINAL DO DESING DA PÁGINA OCORRENCIAS */
+
+/* INICIO DA PÁGINA COMUNICADOS */
+
+.comunicados-container {
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  color: #edf2fa;
+}
+
+.comunicado {
+  background-color: #87ceeb;
+  color: #000;
+  padding: 15px;
+  border-radius: 6px;
+  max-width: 700px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.comunicado h3 {
+  margin: 0 0 10px;
+  color: #000;
+}
+
+.data {
+  font-size: 0.9rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.conteudo {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.comunicado button {
+  background-color: #7b5bf2;
+  color: #edf2fa;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comunicado button:hover {
+  background-color: #808085;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #7b5bf2;
+  color: #edf2fa;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #808085;
+}
+
+/* FINAL DA PÁGINA DE COMUNICADOS */
+
+/* COMEÇO DO DESING DA PÁGINA DE FINANCEIRO */
+
+.financeiro-container {
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  color: #1e293b;
+}
+
+.resumo {
+  display: flex;
+  justify-content: space-around;
+
+  /* ou 'space-between' ou 'gap' se quiser mais controle */
+  align-items: center;
+  flex-wrap: wrap;
+
+  /* se precisar que quebre em telas menores */
+  padding: 20px 0;
+}
+
+.resumo p {
+  font-size: 1.2rem;
+  margin: 10px;
+}
+
+.tabela-financeiro {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #87ceeb;
+  color: #000;
+}
+
+.tabela-financeiro th,
+.tabela-financeiro td {
+  border: 1px solid #ffffff50;
+  padding: 10px;
+}
+
+.pago {
+  color: #10b981;
+
+  /* Verde */
+  font-weight: bold;
+}
+
+.pendente {
+  color: orange;
+  font-weight: bold;
+}
+
+.relatorios button {
+  background-color: #7b5bf2;
+  color: #edf2fa;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.relatorios button:hover {
+  background-color: #808085;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #1e3a8a;
+  color: #edf2fa;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #374151;
+}
+
+/* FINAL DO DESING DE FINANCEIRO */
+
+/* COMEÇO DO DESING DE MORADORES */
+
+.moradores-container {
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  color: #000;
+}
+
+.tabela-moradores {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #87ceeb;
+  color: #000;
+}
+
+.tabela-moradores th,
+.tabela-moradores td {
+  border: 1px solid #ffffff50;
+  padding: 10px;
+}
+
+.ativo {
+  color: #10b981;
+
+  /* Verde */
+  font-weight: bold;
+}
+
+.inativo {
+  color: red;
+  font-weight: bold;
+}
+
+.tabela-moradores button {
+  background-color: #7b5bf2;
+  color: #edf2fa;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.tabela-moradores button:hover {
+  background-color: #808085;
+}
+
+.btn-add {
+  margin-top: 20px;
+  background-color: #7b5bf2;
+  color: #edf2fa;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: #374151;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #1e3a8a;
+  color: #edf2fa;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #374151;
+}
+
+
+/* AGENDA DO SINDICO*/ 
+
+.agenda-container {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 1000px;
+  margin: 20px auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  font-family: sans-serif;
+}
+
+.agenda-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.agenda-title {
+  font-size: 28px;
+  margin: 0;
+  color: #1a202c;
+}
+
+.agenda-subtitle {
+  font-size: 14px;
+  color: #555;
+}
+
+.agenda-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.agenda-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.agenda-button:hover {
+  background-color: #0056b3;
+}
+
+.agenda-button.outline {
+  background: none;
+  border: 2px solid #007bff;
+  color: #007bff;
+}
+
+.section-title {
+  font-size: 20px;
+  color: #2d3748;
+  margin-bottom: 10px;
+}
+
+.calendario-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.calendario-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendario-dia {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  transition: background 0.2s;
+}
+
+.calendario-dia:hover {
+  background: #edf2f7;
+}
+
+.numero-dia {
+  font-weight: bold;
+  display: block;
+}
+
+.evento-bolinha {
+  width: 8px;
+  height: 8px;
+  background-color: #007bff;
+  border-radius: 50%;
+  margin: 6px auto 0;
+}
+
+.tarefa-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tarefa-item {
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.alerta {
+  background: #fff3cd;
+  padding: 10px;
+  border-left: 4px solid #ffc107;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.historico {
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+/*ordem de serviço página principal*/ 
+
+.ordem-servico-btn {
+  margin: 2rem;
+  text-align: center;
+}
+
+.botao-ordem-servico {
+  padding: 12px 24px;
+  background-color: #2d89ef;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao-ordem-servico:hover {
+  background-color: #1b5eaa;
+}
+
+/* página ordem de serviço*/ 
+
+.ordem-servico-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TÍTULO CENTRALIZADO */
+.ordem-servico-container h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* ORGANIZA OS BLOCOS EM COLUNA */
+.blocos-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* QUADRADOS (filtro, resumo, botão nova ordem, voltar) */
+.bloco {
+  background-color: #007bff;
+  padding: 1rem;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* FILTRO E SELECT */
+.filtro-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filtro-container input,
+.filtro-container select {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+/* RESUMO DE STATUS */
+.resumo-status {
+  font-weight: bold;
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  color: white;
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
+
+.badge.pendente { background-color: #ffc107; }
+.badge.andamento { background-color: #17a2b8; }
+.badge.concluida { background-color: #28a745; }
+.badge.cancelada { background-color: #dc3545; }
+
+/* TABELA */
+.ordens-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 4rem;
+}
+
+.ordens-table th,
+.ordens-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.ordens-table th {
+  background-color: #f1f1f1;
+}
+
+/* BOTÃO VOLTAR */
+.btn-voltar {
+  background-color: #001f4d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* PORTARIA DIGITAL*/ 
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #d0e4f5, #a3c8e8);
+}
+
+.tela {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.titulo {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #003366;
+}
+
+/* Caixa azul onde ficam os botões */
+.box-azul {
+  background-color: #0059c1;
+  border-radius: 16px;
+  padding: 30px 40px;
+  display: inline-block;
+  color: white;
+  text-align: left;
+}
+
+/* Menu vertical */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.menu li {
+  margin-bottom: 14px;
+}
+
+.menu a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 16px;
+  background-color: white;
+  color: #003366;
+  display: block;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.menu a:hover {
+  background-color: #e0e0e0;
+}
+
+/* Botão Voltar */
+.voltar {
+  background-color: #223b85;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.voltar:hover {
+  background-color: #1b2f6a;
+}
+
+/* parte dos relatorios*/ 
+
+.titulo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.filtros {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.botao {
+  padding: 0.5rem 1rem;
+  background-color: #2563eb; /* azul */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background-color: #1d4ed8;
+}
+
+.subtitulo {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.lista-resultados {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item-resultado {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.link-pdf {
+  display: block;
+  margin-top: 1rem;
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* 
+CÓDIGO DO RELATORIOS
+
+*/ 
+
+.titulo-relatorio {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.filtros-relatorio {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+}
+
+.campo-filtro label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+select, input[type="date"] {
+  padding: 6px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.botao-gerar {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.botao-gerar:hover {
+  background-color: #1d4ed8;
+}
+
+.subtitulo {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.lista-resultados {
+  list-style: none;
+  padding: 0;
+}
+
+.item-resultado {
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.acoes-finais {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link-pdf, .link-voltar {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.link-voltar {
+  font-size: 14px;
+}
+
+
+/* whatsapp*/ 
+
+.whatsapp-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: sans-serif;
+}
+
+.whatsapp-container h2 {
+  margin-bottom: 20px;
+}
+
+.whatsapp-container label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.whatsapp-container select,
+.whatsapp-container textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modelos {
+  margin-bottom: 20px;
+}
+
+.modelos p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.modelos button {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modelos button:hover {
+  background-color: #ddd;
+}
+
+.enviar-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.enviar-btn:hover {
+  background-color: darkgreen;
+}
+
+
+/* funcionarios*/ 
+
+/* Container da lista */
+.funcionarios-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: flex-start;
+}
+
+/* Estilo do card */
+.funcionario-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 320px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Foto do funcionário */
+.foto-funcionario {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 16px;
+  border: 2px solid #2196F3;
+}
+
+/* Informações do funcionário */
+.info h2 {
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.info p {
+  margin: 4px 0;
+  color: #555;
+}
+
+.acoes {
+  margin-top: 10px;
+}
+
+.acoes a {
+  margin-right: 10px;
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.acoes a:hover {
+  text-decoration: underline;
+}
+
+/* Botão de voltar */
+.button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #2196F3;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: #1976D2;
+}

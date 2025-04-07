@@ -1,0 +1,17 @@
+<div class="grid gap-4">
+  <h3 class="text-lg font-semibold">Últimos Registros</h3>
+
+  <ul>
+    {{#each @visitas as |visita|}}
+      <li>🧍 Visita: {{visita.nomeVisitante}} - {{visita.dataEntrada}}</li>
+    {{/each}}
+
+    {{#each @prestadores as |prestador|}}
+      <li>👷 Prestador: {{prestador.nome}} - {{prestador.dataEntrada}}</li>
+    {{/each}}
+
+    {{#each @encomendas as |encomenda|}}
+      <li>📦 Encomenda: {{encomenda.entregadorNome}} - {{encomenda.dataEntrega}} - {{encomenda.status}}</li>
+    {{/each}}
+  </ul>
+</div>

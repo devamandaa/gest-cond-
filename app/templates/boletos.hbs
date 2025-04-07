@@ -1,0 +1,121 @@
+<div class="boletos-container">
+  <h2>Boletos Emitidos</h2>
+
+  {{!-- Filtros --}}
+  <div class="filtros">
+    <label for="periodo">Filtrar por Período:</label>
+    <select id="periodo">
+      <option>Últimos 3 meses</option>
+      <option>Últimos 6 meses</option>
+      <option>Últimos 12 meses</option>
+    </select>
+
+    <label for="status">Filtrar por Status:</label>
+    <select id="status">
+      <option>Todos</option>
+      <option>Pago</option>
+      <option>A vencer</option>
+      <option>Vencido</option>
+    </select>
+  </div>
+
+  {{!-- Tabela de Boletos --}}
+  <table class="tabela-boletos">
+    <thead>
+      <tr>
+        <th>Mês/Ano</th>
+        <th>Valor</th>
+        <th>Vencimento</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Março/2025</td>
+        <td>R$ 350,00</td>
+        <td>10/03/2025</td>
+        <td class="status-vencido">Vencido</td>
+        <td>
+          <button type="button">🔍 Ver Detalhes</button>
+          <button type="button">📄 Baixar PDF</button>
+          <button type="button">🧾 2ª Via</button>
+        </td>
+      </tr>
+      <tr>
+        <td>Abril/2025</td>
+        <td>R$ 350,00</td>
+        <td>10/04/2025</td>
+        <td class="status-pendente">A vencer</td>
+        <td>
+          <button type="button">🔍 Ver Detalhes</button>
+          <button type="button">📄 Baixar PDF</button>
+          <button type="button">🧾 2ª Via</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  {{!-- Novo: Calendário de vencimentos (simples placeholder visual) --}}
+  <div class="calendario-vencimentos">
+    <h3>📅 Calendário de Vencimentos</h3>
+    <p>Visualize as datas importantes do ano em uma grade (exemplo: calendário interativo).</p>
+  </div>
+
+  {{!-- Novo: Upload de Comprovante --}}
+  <div class="upload-comprovante">
+    <h3>📤 Enviar Comprovante de Pagamento</h3>
+    <form>
+      <input type="file" />
+      <button type="submit">Enviar Comprovante</button>
+    </form>
+  </div>
+
+  {{!-- Novo: Renegociação --}}
+  <div class="renegociacao">
+    <h3>💸 Renegociar Dívida</h3>
+    <p>Caso tenha boletos vencidos, clique abaixo para renegociar:</p>
+    <button type="button">Renegociar Agora</button>
+  </div>
+
+  {{!-- Novo: Histórico Anual --}}
+  <div class="historico-anual">
+    <h3>📜 Histórico de Pagamentos</h3>
+    <label for="ano">Selecionar ano:</label>
+    <select id="ano">
+      <option>2025</option>
+      <option>2024</option>
+      <option>2023</option>
+    </select>
+  </div>
+
+  {{!-- Novo: Simulador de Multa --}}
+  <div class="simulador-multa">
+    <h3>📈 Simulador de Multa e Juros</h3>
+    <p>Selecione o boleto vencido e veja quanto será cobrado de multa e juros:</p>
+    <button type="button">Calcular Multa</button>
+  </div>
+
+  {{!-- Novo: Gráfico de Pagamentos --}}
+  <div class="grafico-pagamentos">
+    <h3>📊 Gráfico de Pagamentos</h3>
+    <p>Exiba aqui um gráfico de pagamentos com status mensais (pago, vencido, em aberto).</p>
+    {{!-- Aqui você pode integrar com uma lib de gráficos futuramente --}}
+  </div>
+
+  {{!-- Informações Complementares --}}
+  <div class="info-complementar">
+    <h3>📌 Avisos:</h3>
+    <p>📌 Seu próximo vencimento é em 10/04/2025.</p>
+    <p>📅 Consulte seu calendário de vencimentos.</p>
+    <p>📜 Histórico disponível no menu lateral.</p>
+    <p>💼 Em caso de dúvidas, contate a administradora: (11) 99999-9999</p>
+    <p>📊 Relatório mensal disponível na área do administrador.</p>
+  </div>
+
+  {{!-- Ações Globais --}}
+  <div class="acoes-globais">
+    <LinkTo @route="index" class="button">🔙 Voltar ao Menu</LinkTo>
+    <button type="button">📥 Baixar Todos os Boletos do Ano</button>
+  </div>
+</div>

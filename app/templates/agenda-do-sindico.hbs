@@ -1,0 +1,64 @@
+<section class="agenda-container">
+  <!-- Cabeçalho -->
+  <div class="agenda-header">
+    <div>
+      <h1 class="agenda-title">Agenda do Síndico</h1>
+      <p class="agenda-subtitle">Planeje e acompanhe todos os eventos, tarefas e alertas do condomínio.</p>
+    </div>
+    <div class="agenda-actions">
+      <button class="agenda-button">Novo Evento</button>
+      <LinkTo @route="index" class="agenda-button outline">Voltar</LinkTo>
+    </div>
+  </div>
+
+  <!-- Calendário -->
+  <div class="agenda-section">
+    <h2 class="section-title">Calendário do Mês</h2>
+
+    <div class="calendario-semana">
+      <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+    </div>
+
+    <div class="calendario-grid">
+      {{#each this.dias as |dia|}}
+        <div class="calendario-dia" {{on "click" (fn this.mostrarDetalhes dia)}}>
+          <span class="numero-dia">{{dia}}</span>
+          {{#if (includes dia this.eventos)}}
+            <div class="evento-bolinha"></div>
+          {{/if}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <!-- Tarefas -->
+  <div class="agenda-section">
+    <h2 class="section-title">Tarefas do Síndico</h2>
+    <ul class="tarefa-lista">
+      <li class="tarefa-item">✔ Verificar extintores (Prioridade: Alta)</li>
+      <li class="tarefa-item">✔ Preparar reunião com moradores</li>
+    </ul>
+  </div>
+
+  <!-- Alertas -->
+  <div class="agenda-section">
+    <h2 class="section-title">Alertas</h2>
+    <div class="alerta">
+      ⚠️ Manutenção do elevador em 2 dias
+    </div>
+    <div class="alerta">
+      📢 Assembleia marcada para 15/04 às 19h
+    </div>
+  </div>
+
+  <!-- Histórico -->
+  <div class="agenda-section">
+    <h2 class="section-title">Histórico</h2>
+    <ul class="historico">
+      <li>10/03 - Limpeza da caixa d'água</li>
+      <li>05/03 - Reunião mensal com moradores</li>
+
+      <LinkTo @route="index" class="button">🔙 Voltar ao Menu</LinkTo>
+    </ul>
+  </div>
+</section>

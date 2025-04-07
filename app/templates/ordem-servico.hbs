@@ -1,0 +1,72 @@
+<section class="ordem-servico-container">
+  <h1>Ordens de Serviço</h1>
+
+  <div class="blocos-container">
+    <!-- BLOCO FILTRO -->
+    <div class="bloco filtro-container">
+      <input type="text" placeholder="Buscar por título..." {{on "input" this.filtrarTitulo}} />
+      <select {{on "change" this.filtrarStatus}}>
+        <option value="">Todos os status</option>
+        <option value="pendente">Pendente</option>
+        <option value="em_andamento">Em Andamento</option>
+        <option value="concluida">Concluída</option>
+        <option value="cancelada">Cancelada</option>
+      </select>
+    </div>
+
+    <!-- BLOCO RESUMO -->
+    <div class="bloco resumo-status">
+      Total: {{this.ordens.length}} ordens
+      <br />
+      <span class="badge pendente">Pendente: {{this.totalPendente}}</span>
+      <span class="badge andamento">Em Andamento: {{this.totalAndamento}}</span>
+      <span class="badge concluida">Concluída: {{this.totalConcluida}}</span>
+      <span class="badge cancelada">Cancelada: {{this.totalCancelada}}</span>
+    </div>
+
+    <!-- BOTÃO NOVA ORDEM -->
+    <div class="bloco">
+      <button class="nova-ordem-btn" {{on "click" this.abrirModal}}>
+        + Nova Ordem de Serviço
+      </button>
+    </div>
+  </div>
+
+  <!-- TABELA -->
+  <table class="ordens-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Prioridade</th>
+        <th>Status</th>
+        <th>Data</th>
+        <th>Responsável</th>
+        <th>Anexo</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.ordensFiltradas as |ordem|}}
+        <tr>
+          <td>{{ordem.id}}</td>
+          <td>{{ordem.titulo}}</td>
+          <td>{{ordem.prioridade}}</td>
+          <td>{{ordem.status}}</td>
+          <td>{{ordem.data}}</td>
+          <td>{{ordem.responsavel}}</td>
+          <td>{{ordem.anexo}}</td>
+          <td>
+            <button {{on "click" (fn this.editarOrdem ordem)}}>Editar</button>
+            <button {{on "click" (fn this.excluirOrdem ordem.id)}}>Excluir</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <!-- BOTÃO VOLTAR AO MENU -->
+  <div class="bloco">
+     <LinkTo @route="index" class="button">Voltar ao Menu</LinkTo>
+  </div>
+</section>

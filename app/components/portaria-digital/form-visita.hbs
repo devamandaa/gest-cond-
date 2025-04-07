@@ -1,0 +1,19 @@
+<form {{on "submit" this.salvarVisita}} class="grid gap-4">
+
+  <Input @value={{this.nome}} placeholder="Nome completo" class="input" />
+
+  <Input @value={{this.documento}} placeholder="Documento de identidade" class="input" />
+
+  <label class="block">
+    Foto (opcional):
+    <input type="file" {{on "change" this.uploadFoto}} class="mt-1 block w-full" />
+  </label>
+
+  <Input @value={{this.unidadeId}} placeholder="Unidade visitada" class="input" />
+
+  <Input @value={{this.moradorId}} placeholder="Morador autorizado" class="input" />
+
+  <Textarea @value={{this.observacoes}} placeholder="Observações" class="textarea" />
+
+  <button type="submit" class="btn-primary">Salvar Visita</button>
+</form>

@@ -1,0 +1,18 @@
+<form {{on "submit" this.salvarEncomenda}} class="grid gap-4">
+
+  <Input @value={{this.entregadorNome}} placeholder="Nome do entregador" class="input" />
+  <Input @value={{this.empresa}} placeholder="Empresa (opcional)" class="input" />
+  <Input @value={{this.unidadeId}} placeholder="Unidade de destino" class="input" />
+
+  <label class="block">
+    Foto da encomenda:
+    <input type="file" {{on "change" this.uploadFoto}} class="mt-1 block w-full" />
+  </label>
+
+  <select {{on "change" this.selecionarStatus}} class="input">
+    <option value="aguardando">Aguardando retirada</option>
+    <option value="entregue">Entregue</option>
+  </select>
+
+  <button type="submit" class="btn-primary">Registrar Encomenda</button>
+</form>
