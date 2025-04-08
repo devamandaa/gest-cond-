@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>CondoWize</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{content-for "head"}}
+<head>
+  <meta charset="utf-8">
+  <title>CondoWize</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS principal da aplicação -->
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/gent-cond.css">
+  {{content-for "head"}}
 
-    <!-- CSS customizado corretamente apontando para a pasta public -->
-    <link rel="stylesheet" href="{{rootURL}}estilo.css">
+  <!-- CSS principal da aplicação -->
+  <link integrity="" rel="stylesheet" href="assets/gent-cond.css">
 
-    {{content-for "head-footer"}}
-  </head>
-  <body>
-    {{content-for "body"}}
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/gent-cond.js"></script>
 
-    {{content-for "body-footer"}}
-  </body>
+
+  {{content-for "head-footer"}}
+</head>
+
+<body>
+  {{content-for "body"}}
+
+  <script src="{{rootURL}}assets/vendor.js"></script>
+  <script src="{{rootURL}}assets/gent-cond.js"></script>
+
+  {{content-for "body-footer"}}
+</body>
+
 </html>

@@ -1,24 +1,23 @@
-<h2 class="text-xl font-bold mb-4">Cadastro de Encomenda</h2>
+<div class="form-container">
+  <h2 class="form-title">Cadastro de Encomenda</h2>
 
-{{#if this.sucesso}}
-  <div class="bg-green-100 p-3 rounded text-green-800 mb-4">
-    Encomenda registrada com sucesso! Notificação enviada ao morador.
-  </div>
-{{/if}}
+  {{#if this.sucesso}}
+    <div class="sucesso-msg">
+      Encomenda registrada com sucesso! Notificação enviada ao morador.
+    </div>
+  {{/if}}
 
-<form {{on "submit" this.salvarEncomenda}} class="grid gap-4">
-  <input type="text" placeholder="Nome do morador" value={{this.nomeMorador}} {{on "input" (fn this.atualiza "nomeMorador")}} />
-  <input type="text" placeholder="Bloco" value={{this.bloco}} {{on "input" (fn this.atualiza "bloco")}} />
-  <input type="text" placeholder="Apartamento" value={{this.apartamento}} {{on "input" (fn this.atualiza "apartamento")}} />
-  <input type="text" placeholder="Descrição da encomenda" value={{this.descricao}} {{on "input" (fn this.atualiza "descricao")}} />
-  <input type="datetime-local" value={{this.dataChegada}} {{on "input" (fn this.atualiza "dataChegada")}} />
-  <input type="file" {{on "change" this.selecionaFoto}} />
-  <input type="text" placeholder="Transportadora (opcional)" value={{this.transportadora}} {{on "input" (fn this.atualiza "transportadora")}} />
+  <form {{on "submit" this.salvarEncomenda}} class="form-grid">
+    <input type="text" placeholder="Nome do morador" value={{this.nomeMorador}} {{on "input" (fn this.atualiza "nomeMorador")}} />
+    <input type="text" placeholder="Bloco" value={{this.bloco}} {{on "input" (fn this.atualiza "bloco")}} />
+    <input type="text" placeholder="Apartamento" value={{this.apartamento}} {{on "input" (fn this.atualiza "apartamento")}} />
+    <input type="text" placeholder="Descrição da encomenda" value={{this.descricao}} {{on "input" (fn this.atualiza "descricao")}} />
+    <input type="datetime-local" value={{this.dataChegada}} {{on "input" (fn this.atualiza "dataChegada")}} />
+    <input type="file" {{on "change" this.selecionaFoto}} />
+    <input type="text" placeholder="Transportadora (opcional)" value={{this.transportadora}} {{on "input" (fn this.atualiza "transportadora")}} />
 
-  <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
-    Salvar Encomenda
-  </button>
+    <button type="submit" class="btn-salvar">Salvar Encomenda</button>
 
-  <LinkTo @route="index" class="button">Voltar ao Menu</LinkTo>
-  
-</form>
+    <LinkTo @route="index" class="btn-voltar">Voltar ao Menu</LinkTo>
+  </form>
+</div>

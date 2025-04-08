@@ -1,0 +1,23 @@
+<div class="login-page">
+  <!-- Imagem de fundo -->
+  <img src="/images/foto-defunfo.jpg" alt="fundo" class="background-image" />
+
+  <!-- Painel de login -->
+  <div class="login-container">
+    <form {{on "submit" this.login}}>
+      <h2>Gestão de Condomínio<br/>CodeWise</h2>
+
+      <label for="email">Usuário</label>
+      <input id="email" type="text" {{on "input" this.updateUsername}} />
+
+      <label for="password">Senha</label>
+      <input id="password" type="password" {{on "input" this.updatePassword}} />
+
+      <button type="submit">Entrar</button>
+
+      {{#if this.errorMessage}}
+        <p class="error">{{this.errorMessage}}</p>
+      {{/if}}
+    </form>
+  </div>
+</div>

@@ -7,6 +7,8 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
+  this.route('login'); 
+
   this.route('boletos');
   this.route('reservas');
   this.route('ocorrencias');
@@ -16,7 +18,7 @@ Router.map(function () {
   this.route('agenda-do-sindico');
   this.route('ordem-servico');
   this.route('portaria');
-  this.route('encomendas'); 
+  this.route('encomendas');
   this.route('relatorios');
   this.route('whatsapp');
   this.route('funcionarios');
@@ -24,5 +26,5 @@ Router.map(function () {
   this.route('relatorios', function () {
     this.route('ocorrencia'); // rota: /relatorios/ocorrencias
   });
+  this.route('home');
 });
- 

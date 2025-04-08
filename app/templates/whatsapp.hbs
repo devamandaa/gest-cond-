@@ -13,12 +13,12 @@
 
   <div class="modelos">
     <p>Modelos rápidos:</p>
-    <button {{on "click" (fn this.fillMessage "📦 Encomenda recebida")}}>📦 Encomenda recebida</button>
-    <button {{on "click" (fn this.fillMessage "⚠️ Manutenção no prédio")}}>⚠️ Manutenção no prédio</button>
-    <button {{on "click" (fn this.fillMessage "📅 Lembrete de reserva")}}>📅 Lembrete de reserva</button>
+    <button type="button" {{on "click" (fn this.fillMessage "📦 Encomenda recebida")}}>📦 Encomenda recebida</button>
+    <button type="button" {{on "click" (fn this.fillMessage "⚠️ Manutenção no prédio")}}>⚠️ Manutenção no prédio</button>
+    <button type="button" {{on "click" (fn this.fillMessage "📅 Lembrete de reserva")}}>📅 Lembrete de reserva</button>
   </div>
 
-  <button class="enviar-btn" {{on "click" this.sendMessage}}>Enviar via WhatsApp</button>
+  <button class="enviar-btn" type="button" {{on "click" this.sendMessage}}>Enviar via WhatsApp</button>
 
    <LinkTo @route="index" class="button">Voltar ao Menu</LinkTo>
 </div>

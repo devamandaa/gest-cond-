@@ -7,6 +7,6 @@
   <button type="submit" class="btn-primary">Gerar autorização</button>
 
   {{#if this.linkGerado}}
-    <p class="mt-4 text-green-600">Link gerado: <a href={{this.linkGerado}} target="_blank" class="underline">{{this.linkGerado}}</a></p>
+    <p class="mt-4 text-green-600">Link gerado: <a href={{this.linkGerado}} target="_blank" class="underline" rel="noopener noreferrer">{{this.linkGerado}}</a></p>
   {{/if}}
 </form>

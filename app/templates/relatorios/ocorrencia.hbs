@@ -19,7 +19,7 @@
       <option value="resolvido">Resolvido</option>
     </select>
   </div>
-  <button {{on "click" this.gerarRelatorio}} class="botao-gerar">
+  <button class="botao-gerar" type="button" {{on "click" this.gerarRelatorio}}>
     📄 Gerar Relatório
   </button>
 </div>
@@ -39,7 +39,7 @@
 
 {{#if this.pdfLink}}
   <div class="acoes-finais">
-    <a href={{this.pdfLink}} target="_blank" class="link-pdf">📥 Baixar PDF</a>
+    <a href={{this.pdfLink}} target="_blank" class="link-pdf" rel="noopener noreferrer">📥 Baixar PDF</a>
     <LinkTo @route="index" class="link-voltar">🔙 Voltar ao Menu</LinkTo>
   </div>
 {{/if}}

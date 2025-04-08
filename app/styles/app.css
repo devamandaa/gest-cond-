@@ -5,180 +5,212 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* ajuda com layouts usando padding/border */
+  box-sizing: border-box;
+  /* ajuda com layouts usando padding/border */
 }
 
 body {
-  color: #333;
+  background-image: url(/images/foto-defunfo.jpg);
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(
-    to bottom,
-    #dbe9f4,
-    #a3cbe3,
-    #6baed6
-  ); /* essa cor de fundo pode ser anexada nas outras páginas */
   font-family: Lato, "Open Sans", Roboto, sans-serif;
   line-height: 1.6;
 }
 
-/* TERMINA A PARTE PRINCIPAL DO DESING */
+  
+  
 
-.container {
+
+/* login do app */
+
+.login-page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin-top: 0;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
+.background-image {
+  position: absolute;
+  top:auto;
+  left:auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.login-container {
+  max-width: 350px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 1;
+}
+
+.login-container label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid ;
+  border-radius: 5px;
+}
+
+.login-container button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #0057c2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #0042a0;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+/* INICIO DA PÁGINA INDEX.HBS*/ 
+
+/* Fundo e container geral */
+.container {
+  position: relative;
+  min-height: 100vh;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 1;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* Cabeçalho */
 .container h2 {
   font-size: 2.5rem;
-  font-weight: bold;
-  margin: 0;
+  margin-bottom: 10px;
   color: #000;
 }
 
 .container h4 {
-  color: #000;
-  font-size: 1rem;
-  max-width: 500px;
-  margin-top: 0;
-  text-align: left;
+  font-weight: normal;
+  color: #222;
+  margin-bottom: 30px;
+  max-width: 900px;
 }
 
-/* FINAL DO DESIGN DO TÍTULO */
-
-/* INÍCIO DO DESIGN DOS BOTÕES DE OPÇÕES */
-.navbar {
-  display: flex;
-  justify-content: center;
-  margin-top: 0;
-  padding: 0;
-}
-
+/* Menu */
 .navbar ul {
-  display: flex;
-  flex-direction: row;
   list-style: none;
-  margin: 0;
-  margin-top: -300px;
-  gap: 10px; /* espaço entre os botões */
-}
-
-.navbar li a {
-  display: block;
-  color: #000;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 10px 16px;
-  background-color: #1e90ff;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.navbar li a:hover {
-  background-color: #808085;
-}
-
-.menu {
   display: flex;
-
-  /* corrigido de 'contents' para 'flex' */
-  gap: 10px;
-  justify-content: center;
-  list-style: none;
+  flex-wrap: wrap;
   padding: 0;
-  margin-top: 20px;
-}
-
-.menu li {
-  background-color: #edf2fa;
-  padding: 12px 16px;
-  border: 1px solid #f5fffa;
-
-  /* faltava ; aqui */
-  border-radius: 4px;
-}
-
-.menu li a {
-  color: #edf2fa;
-  text-decoration: none;
-  font-weight: bold;
-  transition:
-    background 0.3s,
-    color 0.3s;
-}
-
-.menu li a:hover {
-  background-color: #7b5bf2;
-  border-radius: 4px;
-  padding: 12px 16px;
-}
-
-/* FINAL DO DESIGN DAS OPÇÕES DE BOTÕES */
-
-/* PAINEL GERAL - index.hbs */
-
-/* (ESSE SECTION É O PRINCIPAL) */
-
-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin: 20px 0;
   gap: 10px;
-  padding: 20px;
 }
 
-section > div {
-  background-color: #007bff; /* azul */
-  color: black;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgb(0 0 0 / 10%);
-  font-family: Arial, sans-serif;
-}
-
-h2,
-h3 {
-  margin-top: 0;
-  font-size: 1.2rem;
-}
-
-ul {
-  padding-left: 20px;
-}
-
-img {
-  width: 100%;
-  height: auto;
-  margin-top: 5px;
-  border-radius: 5px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-input,
-textarea {
-  padding: 8px;
-  border: none;
-  border-radius: 4px;
-}
-
-button {
-  background-color: #0056b3;
+.navbar li {
+  background-color: #0078d7;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-weight: bold;
   color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
 }
 
-/* AQUI SÃO OS COMANDOS DE INDEX.HBS PARTE DO TITILO */
+.navbar li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Cards */
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+section div {
+  background-color: #0078d7;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+section h2, section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+section ul {
+  padding-left: 20px;
+}
+
+section input,
+section textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+section button {
+  background-color: #004a99;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+section button:hover {
+  background-color: #003366;
+}
+
+/* Botão de emergência */
+section div:last-child button {
+  background-color: #e60000;
+}
+
+section div:last-child button:hover {
+  background-color: #b30000;
+}
+
+
 
 /* FINAL DA PÁGINA DE DESING, DO PAINEL GERAL, QUE FICA NO INDEX.HBS */
+
+
+/* COMEÇO DA PÁGINA BOLETOS*/
+
+
+
 
 .boletos-container {
   padding: 20px;
@@ -815,8 +847,7 @@ h3 {
   background-color: #374151;
 }
 
-
-/* AGENDA DO SINDICO*/ 
+/* AGENDA DO SINDICO */
 
 .agenda-container {
   background: white;
@@ -824,7 +855,7 @@ h3 {
   border-radius: 12px;
   max-width: 1000px;
   margin: 20px auto;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 5%);
   font-family: sans-serif;
 }
 
@@ -949,7 +980,7 @@ h3 {
   color: #555;
 }
 
-/*ordem de serviço página principal*/ 
+/* ordem de serviço página principal */
 
 .ordem-servico-btn {
   margin: 2rem;
@@ -971,7 +1002,7 @@ h3 {
   background-color: #1b5eaa;
 }
 
-/* página ordem de serviço*/ 
+/* página ordem de serviço */
 
 .ordem-servico-container {
   max-width: 900px;
@@ -1004,7 +1035,7 @@ h3 {
   padding: 1rem;
   border-radius: 10px;
   color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 10%);
 }
 
 /* FILTRO E SELECT */
@@ -1035,10 +1066,21 @@ h3 {
   font-size: 0.9rem;
 }
 
-.badge.pendente { background-color: #ffc107; }
-.badge.andamento { background-color: #17a2b8; }
-.badge.concluida { background-color: #28a745; }
-.badge.cancelada { background-color: #dc3545; }
+.badge.pendente {
+  background-color: #ffc107;
+}
+
+.badge.andamento {
+  background-color: #17a2b8;
+}
+
+.badge.concluida {
+  background-color: #28a745;
+}
+
+.badge.cancelada {
+  background-color: #dc3545;
+}
 
 /* TABELA */
 .ordens-table {
@@ -1072,12 +1114,12 @@ h3 {
   gap: 8px;
 }
 
-/* PORTARIA DIGITAL*/ 
+/* PORTARIA DIGITAL */
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background: linear-gradient(to bottom, #d0e4f5, #a3c8e8);
 }
 
@@ -1090,7 +1132,7 @@ body {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 30px;
-  color: #003366;
+  color: #036;
 }
 
 /* Caixa azul onde ficam os botões */
@@ -1115,12 +1157,11 @@ body {
 }
 
 .menu a {
-  color: white;
   font-weight: bold;
   text-decoration: none;
   padding: 10px 16px;
   background-color: white;
-  color: #003366;
+  color: #036;
   display: block;
   border-radius: 8px;
   transition: background-color 0.3s;
@@ -1146,7 +1187,7 @@ body {
   background-color: #1b2f6a;
 }
 
-/* parte dos relatorios*/ 
+/* parte dos relatorios */
 
 .titulo {
   font-size: 1.25rem;
@@ -1175,7 +1216,8 @@ body {
 
 .botao {
   padding: 0.5rem 1rem;
-  background-color: #2563eb; /* azul */
+  background-color: #2563eb;
+  /* azul */
   color: white;
   border: none;
   border-radius: 6px;
@@ -1215,89 +1257,238 @@ body {
   text-decoration: underline;
 }
 
+/* ENCOMENDAS
+/
+*/
+
+/* Container do formulário centralizado */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* ocupa toda a tela */
+  background: #f0f4f8;
+  padding: 2rem;
+}
+
+/* Título centralizado */
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Caixa de mensagem de sucesso */
+.sucesso-msg {
+  background-color: #d1fae5;
+  padding: 0.75rem;
+  border-radius: 8px;
+  color: #065f46;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Estilo do formulário */
+.form-grid {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 10%);
+}
+
+/* Inputs */
+.form-grid input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form-grid input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Botões */
+.btn-salvar {
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-salvar:hover {
+  background-color: #2980b9;
+}
+
+.btn-voltar {
+  display: inline-block;
+  text-align: center;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+  background-color: #3498db;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-voltar:hover {
+  background-color: #2c80c7;
+}
+
 /* 
 CÓDIGO DO RELATORIOS
 
-*/ 
+*/
 
+/* Container principal centralizado na tela */
+.container-relatorio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centraliza HORIZONTALMENTE */
+  justify-content: center;
+  /* Centraliza VERTICALMENTE */
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #dbeafe;
+  /* azul suave, opcional */
+  text-align: center;
+  /* centraliza textos diretamente */
+}
+
+/* Título do relatório */
 .titulo-relatorio {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+  text-align: center;
+  color: #333;
 }
 
+/* Filtros dentro de um card centralizado */
 .filtros-relatorio {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-width: 400px;
+  width: 100%;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 10%);
 }
 
+/* Campo individual do filtro */
 .campo-filtro label {
   display: block;
   margin-bottom: 5px;
   font-weight: 500;
+  color: #333;
 }
 
-select, input[type="date"] {
-  padding: 6px;
+/* Campos de input e select */
+.filtros-relatorio select,
+.filtros-relatorio input[type="date"] {
+  padding: 10px;
   width: 100%;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
+.filtros-relatorio select:focus,
+.filtros-relatorio input[type="date"]:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* Botão de gerar relatório */
 .botao-gerar {
   background-color: #2563eb;
   color: white;
   border: none;
   padding: 10px 16px;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .botao-gerar:hover {
   background-color: #1d4ed8;
 }
 
+/* Subtítulo da listagem */
 .subtitulo {
   font-size: 20px;
   font-weight: 600;
   margin-top: 30px;
   margin-bottom: 10px;
+  text-align: center;
+  color: #333;
 }
 
+/* Lista de resultados */
 .lista-resultados {
   list-style: none;
   padding: 0;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
 }
 
+/* Item da lista */
 .item-resultado {
   border: 1px solid #ccc;
   background-color: #f9f9f9;
   padding: 12px;
   margin-bottom: 10px;
-  border-radius: 4px;
+  border-radius: 6px;
+  color: #333;
 }
 
+/* Ações finais (links de PDF e Voltar) */
 .acoes-finais {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: center;
 }
 
-.link-pdf, .link-voltar {
+/* Links de ação */
+.link-pdf,
+.link-voltar {
   color: #2563eb;
   text-decoration: underline;
-}
-
-.link-voltar {
+  font-weight: 500;
   font-size: 14px;
 }
 
+.link-voltar:hover,
+.link-pdf:hover {
+  color: #1d4ed8;
+}
 
-/* whatsapp*/ 
+/* whatsapp */
 
 .whatsapp-container {
   max-width: 500px;
@@ -1366,8 +1557,7 @@ select, input[type="date"] {
   background-color: darkgreen;
 }
 
-
-/* funcionarios*/ 
+/* funcionarios */
 
 /* Container da lista */
 .funcionarios-lista {
@@ -1383,12 +1573,12 @@ select, input[type="date"] {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 10px;
   width: 320px;
   padding: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
 /* Foto do funcionário */
@@ -1398,13 +1588,13 @@ select, input[type="date"] {
   border-radius: 50%;
   object-fit: cover;
   margin-right: 16px;
-  border: 2px solid #2196F3;
+  border: 2px solid #2196f3;
 }
 
 /* Informações do funcionário */
 .info h2 {
   font-size: 18px;
-  margin: 0 0 8px 0;
+  margin: 0 0 8px;
   color: #333;
 }
 
@@ -1419,7 +1609,7 @@ select, input[type="date"] {
 
 .acoes a {
   margin-right: 10px;
-  color: #0066cc;
+  color: #06c;
   text-decoration: none;
   font-weight: bold;
 }
@@ -1432,7 +1622,7 @@ select, input[type="date"] {
 .button {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #2196F3;
+  background-color: #2196f3;
   color: white;
   text-decoration: none;
   border-radius: 6px;
@@ -1441,5 +1631,5 @@ select, input[type="date"] {
 }
 
 .button:hover {
-  background-color: #1976D2;
+  background-color: #1976d2;
 }

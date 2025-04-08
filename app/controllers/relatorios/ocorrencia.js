@@ -25,8 +25,8 @@ export default class RelatoriosOcorrenciaController extends Controller {
           data_inicio: this.dataInicio,
           data_fim: this.dataFim,
           status: this.status,
-          exportar_pdf: false
-        })
+          exportar_pdf: false,
+        }),
       });
 
       if (!response.ok) throw new Error('Erro na requisição');
@@ -50,8 +50,8 @@ export default class RelatoriosOcorrenciaController extends Controller {
           data_inicio: this.dataInicio,
           data_fim: this.dataFim,
           status: this.status,
-          exportar_pdf: true
-        })
+          exportar_pdf: true,
+        }),
       });
 
       if (!response.ok) throw new Error('Erro ao gerar PDF');

@@ -17,7 +17,9 @@ export default class ComponenteRegistroComponent extends Component {
   }
 
   @action enviarFormulario() {
-    alert(`Nome: ${this.nome}, Telefone: ${this.telefone}, Documento: ${this.documento}`);
+    alert(
+      `Nome: ${this.nome}, Telefone: ${this.telefone}, Documento: ${this.documento}`,
+    );
     this.aberto = false;
     // Aqui pode salvar na API futuramente
   }

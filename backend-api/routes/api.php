@@ -239,3 +239,22 @@ Route::prefix('whatsapp')->controller(WhatsAppController::class)->group(function
 // 
 
 Route::apiResource('funcionarios', FuncionarioController::class);
+
+//
+// ROTAS DO LOGIN
+// 
+
+Route::post('/login', function (Request $request) {
+    $email = $request->input('email');
+    $password = $request->input('password');
+
+    // Usuário e senha fixos (exemplo)
+    if ($email === '@amanda' && $password === '12345') {
+        return response()->json([
+            'status' => 'success',
+            'token' => '123456abcdef' // token fictício
+        ]);
+    }
+
+    return response()->json(['status' => 'error', 'message' => 'Usuário ou senha inválidos'], 401);
+});

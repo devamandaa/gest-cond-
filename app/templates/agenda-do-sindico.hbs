@@ -1,17 +1,17 @@
 <section class="agenda-container">
-  <!-- Cabeçalho -->
+  {{!-- Cabeçalho --}}
   <div class="agenda-header">
     <div>
       <h1 class="agenda-title">Agenda do Síndico</h1>
       <p class="agenda-subtitle">Planeje e acompanhe todos os eventos, tarefas e alertas do condomínio.</p>
     </div>
     <div class="agenda-actions">
-      <button class="agenda-button">Novo Evento</button>
+      <button class="agenda-button" type="button">Novo Evento</button>
       <LinkTo @route="index" class="agenda-button outline">Voltar</LinkTo>
     </div>
   </div>
 
-  <!-- Calendário -->
+  {{!-- Calendário --}}
   <div class="agenda-section">
     <h2 class="section-title">Calendário do Mês</h2>
 
@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <!-- Tarefas -->
+  {{!-- Tarefas --}}
   <div class="agenda-section">
     <h2 class="section-title">Tarefas do Síndico</h2>
     <ul class="tarefa-lista">
@@ -40,7 +40,7 @@
     </ul>
   </div>
 
-  <!-- Alertas -->
+  {{!-- Alertas --}}
   <div class="agenda-section">
     <h2 class="section-title">Alertas</h2>
     <div class="alerta">
@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <!-- Histórico -->
+  {{!-- Histórico --}}
   <div class="agenda-section">
     <h2 class="section-title">Histórico</h2>
     <ul class="historico">
