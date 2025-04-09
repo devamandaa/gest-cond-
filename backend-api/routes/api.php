@@ -258,3 +258,11 @@ Route::post('/login', function (Request $request) {
 
     return response()->json(['status' => 'error', 'message' => 'Usuário ou senha inválidos'], 401);
 });
+
+
+/* PARTE DO LOGIN*/ 
+
+Route::post('/logout', function (Request $request) {
+    
+    return response()->json(['message' => 'Logged out'], 200);
+});

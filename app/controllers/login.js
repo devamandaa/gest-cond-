@@ -1,53 +1,34 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { inject as service } from '@ember/service';
 
 export default class LoginController extends Controller {
-  @service router;
-
-  username = '';
+  email = '';
   password = '';
   errorMessage = '';
 
   @action
   updateUsername(event) {
-    this.username = event.target.value;
+    this.email = event.target.value;
+    this.set('errorMessage', '');
   }
 
   @action
   updatePassword(event) {
     this.password = event.target.value;
+    this.set('errorMessage', '');
   }
 
   @action
-  async login(event) {
+  login(event) {
     event.preventDefault();
 
-    try {
-        let response = await fetch('http://127.0.0.1:8000/api/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              email: this.username,
-              password: this.password
-            })
-          });
-
-      if (!response.ok) {
-        throw new Error('Usuário ou senha inválidos');
-      }
-
-      let data = await response.json();
-
-      // Armazena token (caso queira usar em futuras requisições)
-      localStorage.setItem('token', data.token || '');
-
-      // Redireciona para a página principal
-      this.router.transitionTo('index'); // ou 'home' se quiser outra rota
-    } catch (error) {
-      this.errorMessage = error.message;
+    if (this.email === '@amanda' && this.password === '12345') {
+      this.set('errorMessage', '');
+      alert('Login bem-sucedido!');
+      // Redirecionar se quiser
+      // this.transitionToRoute('dashboard');
+    } else {
+      this.set('errorMessage', 'Usuário ou senha incorretos.');
     }
   }
 }

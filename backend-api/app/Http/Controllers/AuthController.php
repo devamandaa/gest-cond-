@@ -9,12 +9,15 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
+    /**
+     * Registrar novo usuário
+     */
     public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:6|confirmed',
         ]);
 
         $user = User::create([
@@ -23,14 +26,17 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        return response()->json(['message' => 'Usuário registrado com sucesso']);
+        return response()->json(['message' => 'Usuário registrado com sucesso'], 201);
     }
 
+    /**
+     * Login e geração de token
+     */
     public function login(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required|string'
         ]);
 
         $user = User::where('email', $request->email)->first();
@@ -41,13 +47,20 @@ class AuthController extends Controller
             ]);
         }
 
+        $token = $user->createToken('condwise_token')->plainTextToken;
+
         return response()->json([
-            'token' => $user->createToken('condwise_token')->plainTextToken
+            'message' => 'Login realizado com sucesso',
+            'token' => $token
         ]);
     }
 
+    /**
+     * Logout (revoga tokens)
+     */
     public function logout(Request $request)
     {
+        // Remove todos os tokens do usuário logado
         $request->user()->tokens()->delete();
 
         return response()->json(['message' => 'Logout realizado com sucesso']);
