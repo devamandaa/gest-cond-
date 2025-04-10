@@ -1,7 +1,10 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default class LoginController extends Controller {
+  @service router;
+
   email = '';
   password = '';
   errorMessage = '';
@@ -22,11 +25,10 @@ export default class LoginController extends Controller {
   login(event) {
     event.preventDefault();
 
-    if (this.email === '@amanda' && this.password === '12345') {
+    if (this.email.trim().toLowerCase() === 'amanda' && this.password === '123') {
       this.set('errorMessage', '');
-      alert('Login bem-sucedido!');
-      // Redirecionar se quiser
-      // this.transitionToRoute('dashboard');
+      this.router.transitionTo('index'); // <- aqui está o segredo!
+
     } else {
       this.set('errorMessage', 'Usuário ou senha incorretos.');
     }
